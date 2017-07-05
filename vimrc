@@ -2,8 +2,15 @@
 " Avoid possible side effects if `nocompatible` is already set
 if &compatible | set nocompatible | endif
 
+" Filetype detection and systax highligting
+filetype plugin indent on
+syntax on
+
 " Display line numbers
 set number
+
+" Show cursorline
+set cursorline
 
 " Tab general settings
 set tabstop=4
