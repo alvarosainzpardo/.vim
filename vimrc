@@ -2,6 +2,10 @@
 " Avoid possible side effects if `nocompatible` is already set
 if &compatible | set nocompatible | endif
 
+" Load Pathogen plugin manager
+execute pathogen#infect()
+execute pathogen#helptags()
+
 " Filetype detection and systax highligting
 filetype plugin indent on
 syntax on
