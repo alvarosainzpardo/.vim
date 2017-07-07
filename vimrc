@@ -22,3 +22,9 @@ set tabstop=4
 " Listchars settings
 set list
 set listchars=tab:▸\ ,eol:¬
+
+" Plugin specific settings
+
+" Airline plugin settings
+set laststatus=2
+let g:airline_powerline_fonts = 1
