@@ -62,6 +62,11 @@ if has("gui_running")
   if s:uname == "Darwin\n"
     set guifont=Meslo\ LG\ S\ for\ Powerline:h14
   endif
+  if s:uname == "Linux\n"
+    set guifont=Ubuntu\ Mono\ derivative\ Powerline\ 12
+  endif
+  if has("gui_win32")
+  endif
 endif
 
 " Colorscheme Solarized (dark background)
@@ -105,4 +110,4 @@ let g:airline_powerline_fonts = 1
 
 " NERDTree plugin settings
 " Start NERDTree automatically when vim starts up
-autocmd vimenter * NERDTree
+" autocmd vimenter * NERDTree
