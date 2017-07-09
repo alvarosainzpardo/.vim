@@ -3,7 +3,10 @@
 if &compatible | set nocompatible | endif
 
 " Vundle configuration
-filetype off                  " required
+" Setup Vundle
+" git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+"
+filetype off                 " required
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
