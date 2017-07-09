@@ -18,6 +18,7 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
 " Keep Plugin commands between vundle#begin/end.
+Plugin 'scrooloose/nerdtree'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'tpope/vim-fugitive'
@@ -55,10 +56,21 @@ filetype plugin indent on    " required
 " Systax highligting
 syntax on
 
+" Appearance options for GUI (MacVim, gVim)
+if has("gui_running")
+  let s:uname = system("uname")
+  if s:uname == "Darwin\n"
+    set guifont=Meslo\ LG\ S\ for\ Powerline:h14
+  endif
+endif
+
 " Colorscheme Solarized (dark background)
-set background=dark
-" set background=light
-" let g:solarized_termcolors=256
+if has("gui_running")
+  set background=dark
+else
+  set background=light
+  let g:solarized_termcolors=256
+endif
 colorscheme solarized
 "
 " Display line numbers
@@ -68,7 +80,12 @@ set number
 set cursorline
 
 " Tab general settings
-set tabstop=4
+set shiftwidth=2
+" Indentation with spaces
+set expandtab
+set softtabstop=2
+" Indentation with hard tabs
+" set tabstop=2
 
 " Listchars settings
 set list
@@ -85,3 +102,7 @@ set laststatus=2
 let g:airline_powerline_fonts = 1
 " If the patched fonts are not used, UTF-8 symbols can be used
 " let g:airline_unicode_fonts = 1
+
+" NERDTree plugin settings
+" Start NERDTree automatically when vim starts up
+autocmd vimenter * NERDTree
