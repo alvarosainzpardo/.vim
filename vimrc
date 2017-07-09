@@ -11,9 +11,9 @@ filetype plugin indent on
 syntax on
 
 " Colorscheme Solarized (dark background)
-" set background=dark
-set background=light
-let g:solarized_termcolors=256
+set background=dark
+" set background=light
+" let g:solarized_termcolors=256
 colorscheme solarized
 "
 " Display line numbers
