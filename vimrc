@@ -28,6 +28,7 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'tpope/vim-fugitive'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'rakr/vim-one'
+Plugin 'tomasr/molokai'
 " plugin on GitHub repo
 " Plugin 'tpope/vim-fugitive'
 " plugin from http://vim-scripts.org/vim/scripts.html
@@ -80,15 +81,18 @@ if has('gui')
   endif
 endif
 
+" Colorscheme Molokai
+colorscheme molokai
+
 " Colorscheme one (Atom one clone)
 " I currently prefer the light version, both in gui and in terminal. Leave the if
 " sentence in case I change my mind in the future
-if has('gui')
-  set background=light
-else
-  set background=light
-endif
-colorscheme one
+" if has('gui')
+"   set background=light
+" else
+"   set background=light
+" endif
+" colorscheme one
 
 " Colorscheme Solarized
 " if has('gui')
@@ -98,7 +102,7 @@ colorscheme one
 "   let g:solarized_termcolors=256
 " endif
 " colorscheme solarized
-"
+
 " Display line numbers
 set number
 
