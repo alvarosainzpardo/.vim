@@ -9,10 +9,10 @@ if &compatible | set nocompatible | endif
 filetype off                 " required
 
 " set the runtime path to include Vundle and initialize
-if has("unix")
-  set rtp+=~/.vim/bundle/Vundle.vim
-elseif has("win32")
+if has('win32')
   set rtp+=~/vimfiles/bundle/Vundle.vim
+else
+  set rtp+=~/.vim/bundle/Vundle.vim
 endif
 call vundle#begin()
 " alternatively, pass a path where Vundle should install plugins
@@ -59,17 +59,21 @@ filetype plugin indent on    " required
 "
 " Systax highligting
 syntax on
+" Set encoding
+set encoding=utf-8
 
 " Appearance options for GUI (MacVim, gVim)
-if has("gui_running")
-  let s:uname = system("uname")
-  if s:uname == "Darwin\n"
-    set guifont=Meslo\ LG\ S\ for\ Powerline:h14
-  endif
-  if s:uname == "Linux\n"
-    set guifont=Ubuntu\ Mono\ derivative\ Powerline\ 12
-  endif
-  if has("gui_win32")
+if has("gui")
+  if has('win32')
+    set guifont=DejaVu\ Sans\ Mono\ for\ Powerline:h11
+  else
+    let s:uname = system("uname")
+    if s:uname == "Darwin\n"
+      set guifont=Meslo\ LG\ S\ for\ Powerline:h14
+    endif
+    if s:uname == "Linux\n"
+      set guifont=Ubuntu\ Mono\ derivative\ Powerline\ 12
+    endif
   endif
 endif
 
