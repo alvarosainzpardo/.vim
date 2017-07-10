@@ -64,6 +64,8 @@ set encoding=utf-8
 
 " Appearance options for GUI (MacVim, gVim)
 if has("gui")
+  set lines=40
+  set columns=132
   if has('win32')
     set guifont=DejaVu\ Sans\ Mono\ for\ Powerline:h11
   else
