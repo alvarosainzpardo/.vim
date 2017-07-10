@@ -65,7 +65,7 @@ syntax on
 set encoding=utf-8
 
 " Appearance options for GUI (MacVim, gVim)
-if has('gui')
+if has('gui_running')
   set lines=40
   set columns=132
   if has('win32')
@@ -87,7 +87,7 @@ colorscheme molokai
 " Colorscheme one (Atom one clone)
 " I currently prefer the light version, both in gui and in terminal. Leave the if
 " sentence in case I change my mind in the future
-" if has('gui')
+" if has('gui_running')
 "   set background=light
 " else
 "   set background=light
@@ -95,7 +95,7 @@ colorscheme molokai
 " colorscheme one
 
 " Colorscheme Solarized
-" if has('gui')
+" if has('gui_running')
 "   set background=dark
 " else
 "   set background=light
