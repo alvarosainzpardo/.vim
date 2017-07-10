@@ -27,6 +27,7 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'tpope/vim-fugitive'
 Plugin 'altercation/vim-colors-solarized'
+Plugin 'rakr/vim-one'
 " plugin on GitHub repo
 " Plugin 'tpope/vim-fugitive'
 " plugin from http://vim-scripts.org/vim/scripts.html
@@ -63,24 +64,24 @@ syntax on
 set encoding=utf-8
 
 " Appearance options for GUI (MacVim, gVim)
-if has("gui")
+if has('gui')
   set lines=40
   set columns=132
   if has('win32')
     set guifont=DejaVu\ Sans\ Mono\ for\ Powerline:h11
   else
-    let s:uname = system("uname")
-    if s:uname == "Darwin\n"
+    let s:uname = system('uname')
+    if s:uname == 'Darwin\n'
       set guifont=Meslo\ LG\ S\ for\ Powerline:h14
     endif
-    if s:uname == "Linux\n"
+    if s:uname == 'Linux\n'
       set guifont=Ubuntu\ Mono\ derivative\ Powerline\ 12
     endif
   endif
 endif
 
 " Colorscheme Solarized (dark background)
-if has("gui_running")
+if has('gui')
   set background=dark
 else
   set background=light
