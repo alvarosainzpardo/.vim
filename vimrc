@@ -80,14 +80,24 @@ if has('gui')
   endif
 endif
 
-" Colorscheme Solarized (dark background)
+" Colorscheme one (Atom one clone)
+" I currently prefer the light version, both in gui and in terminal. Leave the if
+" sentence in case I change my mind in the future
 if has('gui')
-  set background=dark
+  set background=light
 else
   set background=light
-  let g:solarized_termcolors=256
 endif
-colorscheme solarized
+colorscheme one
+
+" Colorscheme Solarized
+" if has('gui')
+"   set background=dark
+" else
+"   set background=light
+"   let g:solarized_termcolors=256
+" endif
+" colorscheme solarized
 "
 " Display line numbers
 set number
