@@ -72,11 +72,11 @@ if has('gui')
     set guifont=DejaVu\ Sans\ Mono\ for\ Powerline:h11
   else
     let s:uname = system('uname')
-    if s:uname == 'Darwin\n'
+    if s:uname == "Darwin\n"
       set guifont=Meslo\ LG\ S\ for\ Powerline:h14
-    endif
-    if s:uname == 'Linux\n'
+    elseif s:uname == "Linux\n"
       set guifont=Ubuntu\ Mono\ derivative\ Powerline\ 12
+    else
     endif
   endif
 endif
