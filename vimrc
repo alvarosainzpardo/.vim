@@ -81,6 +81,9 @@ if has('gui_running')
   endif
 endif
 
+" Use true color in terminal (supported in Cygwin, iTerm2, gnuterm)
+set termguicolors
+
 " Colorscheme Molokai
 colorscheme molokai
 
