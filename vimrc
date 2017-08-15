@@ -29,6 +29,7 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'rakr/vim-one'
 Plugin 'tomasr/molokai'
+Plugin 'mattn/emmet-vim'
 " plugin on GitHub repo
 " Plugin 'tpope/vim-fugitive'
 " plugin from http://vim-scripts.org/vim/scripts.html
@@ -101,8 +102,8 @@ colorscheme molokai
 " if has('gui_running')
 "   set background=dark
 " else
-"   set background=light
-"   let g:solarized_termcolors=256
+"   set background=dark
+" let g:solarized_termcolors=256
 " endif
 " colorscheme solarized
 
