@@ -86,17 +86,18 @@ endif
 set termguicolors
 
 " Colorscheme Molokai
-colorscheme molokai
+" colorscheme molokai
 
 " Colorscheme one (Atom one clone)
-" I currently prefer the light version, both in gui and in terminal. Leave the if
+" I currently prefer the dark version, both in gui and in terminal. Leave the if
 " sentence in case I change my mind in the future
 " if has('gui_running')
-"   set background=light
+"   set background=dark
 " else
-"   set background=light
+"   set background=dark
 " endif
-" colorscheme one
+set background=dark
+colorscheme one
 
 " Colorscheme Solarized
 " if has('gui_running')
