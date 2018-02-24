@@ -30,6 +30,7 @@ Plugin 'altercation/vim-colors-solarized'
 Plugin 'rakr/vim-one'
 Plugin 'tomasr/molokai'
 Plugin 'mattn/emmet-vim'
+Plugin 'jiangmiao/auto-pairs'
 " plugin on GitHub repo
 " Plugin 'tpope/vim-fugitive'
 " plugin from http://vim-scripts.org/vim/scripts.html
