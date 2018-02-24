@@ -114,6 +114,9 @@ set number
 " Show cursorline
 set cursorline
 
+" Show color column
+set colorcolumn=80
+
 " Tab general settings
 set shiftwidth=2
 " Indentation with spaces
@@ -124,7 +127,7 @@ set softtabstop=2
 
 " Listchars settings
 set list
-set listchars=tab:▸\ ,eol:¬
+set listchars=tab:▸\ ,eol:¬,trail:·
 
 " Plugin specific settings
 
