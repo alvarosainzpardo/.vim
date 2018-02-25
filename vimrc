@@ -22,16 +22,17 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
 " Keep Plugin commands between vundle#begin/end.
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'scrooloose/nerdtree'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'tpope/vim-fugitive'
+Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'scrooloose/nerdtree'
+Plugin 'jiangmiao/auto-pairs'
+Plugin 'tpope/vim-surround'
+Plugin 'mattn/emmet-vim'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'rakr/vim-one'
 Plugin 'tomasr/molokai'
-Plugin 'mattn/emmet-vim'
-Plugin 'jiangmiao/auto-pairs'
 " plugin on GitHub repo
 " Plugin 'tpope/vim-fugitive'
 " plugin from http://vim-scripts.org/vim/scripts.html
@@ -131,6 +132,10 @@ set softtabstop=2
 set list
 set listchars=tab:▸\ ,eol:¬,trail:·
 
+" Buffer settings
+" Allow hidden modified buffers
+set hidden
+"
 " Plugin specific settings
 
 " Airline plugin settings
@@ -142,6 +147,10 @@ set laststatus=2
 let g:airline_powerline_fonts = 1
 " If the patched fonts are not used, UTF-8 symbols can be used
 " let g:airline_unicode_fonts = 1
+" Enable the list of buffers
+let g:airline#extensions#tabline#enabled = 1
+" Show just the filename
+let g:airline#extensions#tabline#fnamemod = ':t'
 
 " NERDTree plugin settings
 " Start NERDTree automatically when vim starts up
