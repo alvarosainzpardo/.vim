@@ -29,6 +29,7 @@ Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'tpope/vim-surround'
+Plugin 'vim-syntastic/syntastic'
 Plugin 'mattn/emmet-vim'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'rakr/vim-one'
@@ -155,3 +156,13 @@ let g:airline#extensions#tabline#fnamemod = ':t'
 " NERDTree plugin settings
 " Start NERDTree automatically when vim starts up
 " autocmd vimenter * NERDTree
+
+" Syntastic plugin settings
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
