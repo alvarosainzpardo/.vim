@@ -1,69 +1,100 @@
 " Don't try to be vi compatible
 " Avoid possible side effects if `nocompatible` is already set
 if &compatible | set nocompatible | endif
+"
+" Package manager configuration
+"
+" Choose package manager: 'Vundle' or 'vim-plug'
+" let s:package_manager='Vundle'
+let s:package_manager='vim-plug'
+" Set root config path depending on vim version: Windows, vim8 or neovim
+if has('win32')
+  let s:root_path=expand('~/vimfiles')
+else
+  if has('nvim')
+    let s:root_path=expand('~/.config/nvim')
+  else
+    let s:root_path=expand('~/.vim')
+  endif
+endif
+" vim-plug configuration
+if s:package_manager == 'vim-plug'
+  if empty(glob(s:root_path . '/autoload/plug.vim'))
+      silent execute '!curl -fLo ' . s:root_path . '/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+      autocmd VimEnter * PlugInstall --sync
+      " autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+  endif
+  call plug#begin(s:root_path . '/plugged')
+  Plug 'vim-airline/vim-airline'
+  Plug 'vim-airline/vim-airline-themes'
+  Plug 'tpope/vim-fugitive'
+  Plug 'ctrlpvim/ctrlp.vim'
+  Plug 'scrooloose/nerdtree'
+  Plug 'jiangmiao/auto-pairs'
+  Plug 'tpope/vim-surround'
+  Plug 'vim-syntastic/syntastic'
+  Plug 'mattn/emmet-vim'
+  Plug 'altercation/vim-colors-solarized'
+  Plug 'rakr/vim-one'
+  Plug 'tomasr/molokai'
+  call plug#end()
+endif
 
 " Vundle configuration
 " Setup Vundle
 " git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 "
-filetype off                 " required
+if s:package_manager == 'Vundle'
+  filetype off                 " required
 
-" set the runtime path to include Vundle and initialize
-if has('win32')
-  set rtp+=~/vimfiles/bundle/Vundle.vim
-else
-  set rtp+=~/.vim/bundle/Vundle.vim
+  " set the runtime path to include Vundle and initialize
+
+  " (19/03/18): New implementation, with vim8 and neovim compatibility
+  if has('win32')
+    set rtp+=~/vimfiles/bundle/Vundle.vim
+    call vundle#begin()
+  else
+    if has('nvim')
+      set rtp+=~/.config/nvim/bundle/Vundle.vim
+      call vundle#begin('~/.config/nvim/bundle')
+    else
+      set rtp+=~/.vim/bundle/Vundle.vim
+      call vundle#begin('~/.vim/bundle')
+    endif
+  endif
+
+  " Old implementation, before vim8 and neovim compatibility
+  " if has('win32')
+  "   set rtp+=~/vimfiles/bundle/Vundle.vim
+  " else
+  "   set rtp+=~/.vim/bundle/Vundle.vim
+  " endif
+  " call vundle#begin()
+  " alternatively, pass a path where Vundle should install plugins
+  "call vundle#begin('~/some/path/here')
+
+  " let Vundle manage Vundle, required
+  Plugin 'VundleVim/Vundle.vim'
+  " Keep Plugin commands between vundle#begin/end.
+  Plugin 'vim-airline/vim-airline'
+  Plugin 'vim-airline/vim-airline-themes'
+  Plugin 'tpope/vim-fugitive'
+  Plugin 'ctrlpvim/ctrlp.vim'
+  Plugin 'scrooloose/nerdtree'
+  Plugin 'jiangmiao/auto-pairs'
+  Plugin 'tpope/vim-surround'
+  Plugin 'vim-syntastic/syntastic'
+  Plugin 'mattn/emmet-vim'
+  Plugin 'altercation/vim-colors-solarized'
+  Plugin 'rakr/vim-one'
+  Plugin 'tomasr/molokai'
+  " All of your Plugins must be added before the following line
+  call vundle#end()            " required
+  filetype plugin indent on    " required
+  " To ignore plugin indent changes, instead use:
+  "filetype plugin on
 endif
-call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
 
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
-
-" Keep Plugin commands between vundle#begin/end.
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'tpope/vim-fugitive'
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'scrooloose/nerdtree'
-Plugin 'jiangmiao/auto-pairs'
-Plugin 'tpope/vim-surround'
-Plugin 'vim-syntastic/syntastic'
-Plugin 'mattn/emmet-vim'
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'rakr/vim-one'
-Plugin 'tomasr/molokai'
-" plugin on GitHub repo
-" Plugin 'tpope/vim-fugitive'
-" plugin from http://vim-scripts.org/vim/scripts.html
-" Plugin 'L9'
-" Git plugin not hosted on GitHub
-" Plugin 'git://git.wincent.com/command-t.git'
-" git repos on your local machine (i.e. when working on your own plugin)
-" Plugin 'file:///home/gmarik/path/to/plugin'
-" The sparkup vim script is in a subdirectory of this repo called vim.
-" Pass the path to set the runtimepath properly.
-" Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
-" Install L9 and avoid a Naming conflict if you've already installed a
-" different version somewhere else.
-" Plugin 'ascenator/L9', {'name': 'newL9'}
-
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
-" To ignore plugin indent changes, instead use:
-"filetype plugin on
-"
-" Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-"
-" see :h vundle for more details or wiki for FAQ
-" Put your non-Plugin stuff after this line
-"
 " Systax highligting
 syntax on
 " Set encoding
