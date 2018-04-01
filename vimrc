@@ -143,7 +143,7 @@ set termguicolors
 "   set background=dark
 " endif
 set background=dark
-colorscheme one
+silent! colorscheme one
 
 " Colorscheme Solarized
 " if has('gui_running')
@@ -209,7 +209,7 @@ nnoremap <C-n> :NERDTreeToggle<CR>
 
 " Syntastic plugin settings
 set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
+if exists ('*SyntasticStatuslineFlag') | set statusline+=%{SyntasticStatuslineFlag()} | endif
 set statusline+=%*
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
