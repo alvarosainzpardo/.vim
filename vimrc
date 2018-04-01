@@ -45,23 +45,34 @@ endif
 " git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 "
 if s:package_manager == 'Vundle'
+  if empty(glob(s:root_path . '/bundle/Vundle.vim'))
+      silent execute '!mkdir -p ' . s:root_path . '/bundle'
+      silent execute '!git clone https://github.com/VundleVim/Vundle.vim.git ' . s:root_path . '/bundle/Vundle.vim'
+      autocmd VimEnter * PluginInstall
+  endif
+
   filetype off                 " required
 
   " set the runtime path to include Vundle and initialize
 
+  " (31/03/18): Newer implementation, using let to construct the value to
+  " assign to rtp
+  let &rtp = &rtp . ',' . s:root_path . '/bundle/Vundle.vim'
+  call vundle#begin(s:root_path . '/bundle')
+
   " (19/03/18): New implementation, with vim8 and neovim compatibility
-  if has('win32')
-    set rtp+=~/vimfiles/bundle/Vundle.vim
-    call vundle#begin()
-  else
-    if has('nvim')
-      set rtp+=~/.config/nvim/bundle/Vundle.vim
-      call vundle#begin('~/.config/nvim/bundle')
-    else
-      set rtp+=~/.vim/bundle/Vundle.vim
-      call vundle#begin('~/.vim/bundle')
-    endif
-  endif
+  " if has('win32')
+  "   set rtp+=~/vimfiles/bundle/Vundle.vim
+  "   call vundle#begin()
+  " else
+  "   if has('nvim')
+  "     set rtp+=~/.config/nvim/bundle/Vundle.vim
+  "     call vundle#begin('~/.config/nvim/bundle')
+  "   else
+  "     set rtp+=~/.vim/bundle/Vundle.vim
+  "     call vundle#begin('~/.vim/bundle')
+  "   endif
+  " endif
 
   " Old implementation, before vim8 and neovim compatibility
   " if has('win32')
