@@ -1,6 +1,7 @@
 " Don't try to be vi compatible
 " Avoid possible side effects if `nocompatible` is already set
-if &compatible | set nocompatible | endif
+" if &compatible | set nocompatible | endif
+set nocompatible
 "
 " Package manager configuration
 "
