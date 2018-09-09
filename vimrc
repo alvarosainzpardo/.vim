@@ -38,6 +38,7 @@ if s:package_manager == 'vim-plug'
   Plug 'altercation/vim-colors-solarized'
   Plug 'rakr/vim-one'
   Plug 'tomasr/molokai'
+  Plug 'morhetz/gruvbox'
   call plug#end()
 endif
 
