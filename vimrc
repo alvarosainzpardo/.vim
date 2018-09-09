@@ -34,11 +34,15 @@ if s:package_manager == 'vim-plug'
   Plug 'jiangmiao/auto-pairs'
   Plug 'tpope/vim-surround'
   Plug 'vim-syntastic/syntastic'
+" Multi-language pack (syntax, intentation, ...)
+" Plug 'sheerun/vim-polyglot'
   Plug 'mattn/emmet-vim'
   Plug 'altercation/vim-colors-solarized'
   Plug 'rakr/vim-one'
-  Plug 'joshdick/onedark.vim'
-  Plug 'tomasr/molokai'
+" Alternative Atom One colorscheme
+" Plug 'joshdick/onedark.vim'
+" Molokai colorscheme
+" Plug 'tomasr/molokai'
   Plug 'morhetz/gruvbox'
   call plug#end()
 endif
