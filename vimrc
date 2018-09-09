@@ -122,7 +122,7 @@ if has('gui_running')
   else
     let s:uname = system('uname')
     if s:uname == "Darwin\n"
-      set guifont=Meslo\ LG\ S\ for\ Powerline:h14
+      set guifont=Meslo\ LG\ M\ for\ Powerline:h14
       set guioptions= " Remove left and right vertical scroll bars
     elseif s:uname == "Linux\n"
       set guifont=Ubuntu\ Mono\ derivative\ Powerline\ 13
