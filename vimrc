@@ -44,6 +44,7 @@ if s:package_manager == 'vim-plug'
 " Molokai colorscheme
 " Plug 'tomasr/molokai'
   Plug 'morhetz/gruvbox'
+" Plug 'ryanoasis/vim-devicons'
   call plug#end()
 endif
 
@@ -106,6 +107,7 @@ if s:package_manager == 'Vundle'
   Plugin 'altercation/vim-colors-solarized'
   Plugin 'rakr/vim-one'
   Plugin 'tomasr/molokai'
+" Plugin 'ryanoasis/vim-devicons'
   " All of your Plugins must be added before the following line
   call vundle#end()            " required
   filetype plugin indent on    " required
@@ -137,7 +139,9 @@ if has('gui_running')
 endif
 
 " Use true color in terminal (supported in Cygwin, iTerm2, gnuterm)
-set termguicolors
+if has('termguicolors')
+  set termguicolors
+endif
 
 " Colorscheme Molokai
 " colorscheme molokai
