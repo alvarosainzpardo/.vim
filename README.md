@@ -11,8 +11,8 @@ $ cd $HOME
 $ git clone git@github.com:alvarosainzpardo/.vim.git
 ```
 
-The file $HOME/.git/vimrc should be used by vim as the user config file. If not, then link $HOME/.vimrc to $HOME/.vim/vimrc:
+The file $HOME/.vim/vimrc should be used by vim as the user config file. If not, then link $HOME/.vimrc to $HOME/.vim/vimrc:
 
 ```bash
-$ ln -s .git/vimrc ~/.vimrc
+$ ln -s ~/.vim/vimrc ~/.vimrc
 ```
