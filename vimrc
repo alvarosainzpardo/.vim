@@ -43,7 +43,7 @@ if s:package_manager == 'vim-plug'
 " Plug 'joshdick/onedark.vim'
 " Molokai colorscheme
 " Plug 'tomasr/molokai'
-  Plug 'morhetz/gruvbox'
+" Plug 'morhetz/gruvbox'
 " Plug 'ryanoasis/vim-devicons'
   call plug#end()
 endif
